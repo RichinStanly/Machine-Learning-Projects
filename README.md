@@ -1,48 +1,36 @@
-# Machine-Learning-Projects
-A comprehensive collection of Machine Learning models focusing on Healthcare AI and Predictive Analytics. Includes algorithms for detecting Diabetes, Malaria, and Heart Disease using Python and Scikit-Learn
-
-# 🤖 Machine Learning & Healthcare AI Portfolio
+# 💳 Credit Card Fraud Detection System
 
 ## 📌 Overview
-This repository houses a collection of **Supervised and Unsupervised Machine Learning models** developed during my academic tenure. The primary focus is on **Healthcare Diagnostics**, where I applied algorithms to predict disease likelihood based on medical datasets.
+This project utilizes **Unsupervised Deep Learning** (Self-Organizing Maps - SOM) to identify potential fraud in credit card applications. Unlike traditional supervised models that require labeled "fraud" data, this system identifies **outliers** in the application pattern to flag suspicious customers automatically.
 
-## 🏥 Key Projects: Healthcare AI
+## 📂 Project Structure
+* **`credit.ipynb`**: The core research notebook. It performs data preprocessing, trains the SOM to identify outliers, and visualizes the "Winning Nodes" (fraud patterns).
+* **`app.py`**: A deployment script (likely using Streamlit) to visualize the results or predict new applications.
+* **`Credit_Card_Applications.csv`**: The dataset containing anonymized application attributes.
 
-### 1. 🫀 Heart Disease Prediction
-* **Objective:** To predict the presence of heart disease in patients based on vitals (Age, Sex, CP, Cholesterol, etc.).
-* **Algorithm:** K-Nearest Neighbors (KNN) & Logistic Regression.
-* **Accuracy:** Optimized for high sensitivity to minimize false negatives.
+## 🧠 The Logic (How it works)
+1.  **Data Preprocessing:** Scales all attributes (Age, Income, Credit Score, etc.) to a 0-1 range using MinMax Scaling.
+2.  **Unsupervised Learning (SOM):** The model builds a 2D map of the data. Customers who don't fit the standard "approved" patterns are pushed to the edges or specific "outlier nodes."
+3.  **Fraud Detection:** The algorithm identifies the Mean Inter-Neuron Distance (MID). Higher MID values indicate significant deviation from the norm—flagging these specific application IDs as potential fraud.
 
-### 2. 🩸 Diabetes Detection
-* **Objective:** A diagnostic tool that classifies patients as diabetic/non-diabetic based on insulin levels, BMI, and glucose.
-* **Tech Stack:** Support Vector Machines (SVM) & Decision Trees.
-
-### 3. 🦟 Malaria Cell Detection
-* **Objective:** To automate the diagnosis of Malaria by analyzing blood smear images.
-* **Algorithm:** Convolutional Neural Networks (CNN) / Deep Learning.
-* **Input:** Cell images (Parasitized vs. Uninfected).
-
-### 4. 🫁 Lung Cancer Prediction
-* **Objective:** Early stage risk assessment using patient lifestyle and health data.
-* **Algorithm:** Random Forest Classifier.
-
----
-
-## 📉 Fundamental Data Science Models
-Beyond healthcare, this repository includes foundational projects demonstrating core ML concepts:
-* **Weather Prediction:** Time-series forecasting.
-* **Salary Prediction:** Linear Regression models based on years of experience.
-* **Iris Flower Classification:** The classic "Hello World" of ML using multi-class classification.
-
-## 🛠️ Technology Stack
-* **Languages:** Python 3.x
-* **Libraries:**
-    * `Scikit-learn` (Model Building)
-    * `Pandas` & `NumPy` (Data Manipulation)
-    * `Matplotlib` & `Seaborn` (Data Visualization)
-    * `Jupyter Notebook` (Development Environment)
+## 🛠️ Tech Stack
+* **Python 3.x**
+* **MiniSom:** For implementing Self-Organizing Maps.
+* **Scikit-Learn:** For data scaling and preprocessing.
+* **Pandas & NumPy:** For data manipulation.
+* **Matplotlib:** For plotting the SOM grid and identifying outliers.
 
 ## 🚀 How to Run
-1.  Clone the repository.
-2.  Install dependencies: `pip install pandas numpy scikit-learn matplotlib`.
-3.  Open any `.ipynb` file in Jupyter Notebook to see the code and visualizations in action.
+1.  **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+2.  **Run the Analysis Notebook:**
+    Open `credit.ipynb` in Jupyter Notebook to see the training process and visualization.
+3.  **Run the App (Optional):**
+    ```bash
+    streamlit run app.py
+    ```
+
+## 📈 Results
+The model successfully segments customers into "Approved" and "High Risk" clusters, providing a list of Application IDs that require manual review for potential fraud.
