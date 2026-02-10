@@ -1,0 +1,44 @@
+Regression
+
+To predict a numerical data
+
+simple linear Regression
+
+multiple linear Regression
+
+polynomial Regression
+
+independent variable
+dependent variable
+
+credit score               intrest
+independent                dependent
+
+
+AREA                        Price
+independent                 dependent
+
+
+1 independent   variable   1 dependent variableset, we can use regression algorithms. Regression algorithms help us to find the relationship between independent and dependent variables.
+
+year exp                 salary  = simple linear regression
+
+height                   weigth = simple linear regression
+
+
+more than 1 independent variable and 1 dependent variable = multiple linear regression
+
+
+Ac tv phone ref                    price
+car name mileage engine            price
+
+
+AREA                    Price
+
+2600  sqft              5500000
+3000  sqft              6100000
+3200  sqft              6200000
+3600  sqft              6800000
+4000  sqft              7100000
+
+3500  sqft              6000000
